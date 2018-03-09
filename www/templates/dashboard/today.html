@@ -1,0 +1,152 @@
+<ion-view view-title="Durga-Buzzer" hide-back-button="true" class="layout">
+
+  <ion-content>
+
+  <!-- safe location -->  
+  <div ng-show="color == 'green'">
+ <div class="w3-display-container">
+  <div class="image-wrapperprofile">
+   <img ng-src="img/green.png" style="height:18em;width:100%;">
+    <div class="w3-display-topleft" ng-click="toggleLeftSideMenu()">
+     <i class="icon ion-navicon" ></i>
+    </div>
+    <div class="w3-display-topright" ng-click="call()" style="margin-top: 0.5em !important;">
+     <i class="icon ion-android-call" ></i>
+    </div>
+     <div class="w3-display-middle1">  
+     <div class="profile-view">
+            <div class="pv-header">
+                
+            <img ng-src="img/profile.png" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image == undefined || image == null">
+            <img ng-src="{{image}}" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image != undefined || image != null">
+            
+            </div>
+      </div>
+      <p class="font-headfonter" style="color: #fff; margin-top:2em;"><font size="4px">You are in Safe Location</font></p>     
+              
+          </div>
+        </div>
+      </div>
+      <div>
+            <div class="row">
+     
+      <div class="col-90" style="margin-top : 0px !important;">
+            <label class="item item-input item-floating-label" >
+                    <input type="text" placeholder="Enter Destination..."   google-autocomplete-suggestion location="location" on-selection="onAddressSelection(location)" ng-model="location.formatted_address" style="color: #000; background: transparent;" autocomplete="off">
+                </label> 
+        </div>
+         <div class="col-10" style="margin-top : 10px !important; margin-left: 1em !important;" ng-click="showtext(location)">
+      <i class="icon ion-android-search" style="color: #000; font-size: 20px;"></i>
+      </div>
+      </div> 
+            <div demo-map ng-model="user.location" class="demo-map">
+            </div>  
+        
+        </div>
+      </div>
+      <!-- End-->
+
+    <!-- moderate location -->
+    <div ng-show="color == 'orange'">
+     <div class="w3-display-container">
+  <div class="image-wrapperprofile">
+   <img ng-src="img/orange.png" style="height:18em;width:100%;" >
+    <div class="w3-display-topleft" ng-click="toggleLeftSideMenu()">
+     <i class="icon ion-navicon" ></i>
+    </div>
+    <div class="w3-display-topright" ng-click="call()" style="margin-top: 0.5em !important;">
+     <i class="icon ion-android-call"></i>
+    </div>
+     <div class="w3-display-middle1">  
+     <div class="profile-view">
+            <div class="pv-header">
+                
+            <img ng-src="img/profile.png" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image == undefined || image == null">
+            <img ng-src="{{image}}" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image != undefined || image != null">
+            
+            </div>
+      </div>
+      <p class="font-headfonter" style="color: #fff; margin-top:2em;"><font size="4px">You are in Moderate Location</font></p>     
+              
+          </div>
+        </div>
+      </div>
+       <div>
+
+        <div class="row">
+     
+      <div class="col-90" style="margin-top : 0px !important;">
+             <label class="item item-input item-floating-label" >
+                    <input type="text" placeholder="Enter Destination..."   google-autocomplete-suggestion location="location" on-selection="onAddressSelection(location)" ng-model="location.formatted_address" style="color: #000; background: transparent;" autocomplete="off">
+                </label> 
+        </div>
+         <div class="col-10" style="margin-top : 10px !important; margin-left: 1em !important;" ng-click="showtext(location)">
+      <i class="icon ion-android-search" style="color: #000; font-size: 20px;"></i>
+      </div>
+      </div> 
+     
+            <div demo-map ng-model="user.location" class="demo-map">
+            </div>  
+        
+        </div>
+      </div>
+    <!-- End -->
+
+    <!-- danger location -->
+    <div ng-show="color == 'red'">
+    <div class="w3-display-container">
+  <div class="image-wrapperprofile">
+   <img ng-src="img/red.png" style="height:18em;width:100%;" >
+    <div class="w3-display-topleft" ng-click="toggleLeftSideMenu()">
+     <i class="icon ion-navicon" ></i>
+    </div>
+    <div class="w3-display-topright" ng-click="call()" style="margin-top: 0.5em !important;">
+     <i class="icon ion-android-call"></i>
+    </div>
+     <div class="w3-display-middle1">  
+     <div class="profile-view">
+            <div class="pv-header">
+                
+            <img ng-src="img/profile.png" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image == undefined || image == null">
+            <img ng-src="{{image}}" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px; margin-bottom: 1em !important;" ng-if="image != undefined || image != null">
+            
+            </div>
+      </div>
+      <p class="font-headfonter" style="color: #fff; margin-top:2em;"><font size="4px">You are in Danger Location</font></p>   
+              
+          </div>
+        </div>
+      </div>
+       <div>
+
+        <div class="row">
+     
+      <div class="col-90" style="margin-top : 0px !important;">
+            <label class="item item-input item-floating-label" >
+                    <input type="text" placeholder="Enter Destination..."   google-autocomplete-suggestion location="location" on-selection="onAddressSelection(location)" ng-model="location.formatted_address" style="color: #000; background: transparent;" autocomplete="off">
+                </label> 
+        </div>
+         <div class="col-10" style="margin-top : 10px !important; margin-left: 1em !important;" ng-click="showtext(location)">
+      <i class="icon ion-android-search" style="color: #000; font-size: 20px;"></i>
+      </div>
+      </div> 
+     
+            <div demo-map ng-model="user.location" class="demo-map">
+            </div>  
+        
+        </div>
+      </div>
+    <!-- End -->
+  
+  </ion-content>
+
+   <div class="float-button" style="padding-right: 1.5em;">
+     <span class="height-fix">
+       <button id="fab-profile" class="button button-fab button-fab-bottom-right fab-fixed button-positive pane" ui-sref="app.chatgroup" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px); ">
+         <i class="icon ion-chatbubbles"></i>
+       </button>
+     </span>
+   </div> 
+
+
+ </ion-view>

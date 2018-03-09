@@ -1,0 +1,44 @@
+<ion-view view-title="Verify Criminal" class="layout" hide-back-button="true">
+<ion-header-bar align-title="left" class="bar-positive">
+   <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeftSideMenu()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:'Roboto' sans-serif !important;">Verify Criminal</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+  <ion-content class="padding iniLogin">
+
+   
+
+    <form name="form">
+      <div class="list list-icon" ng-show="disable1 == true">
+          <div class="profile-view">
+            <div class="pv-header">
+                <label >
+
+                   <img src="img/camera.png" class="pv-main" alt="" height="120px" ng-if="!display1.img">
+                
+                   
+                 <input type="file" id="fileButton1"  data-file1 ng-model="image.file" style="visibility: hidden;">
+                </label>
+            </div>
+          </div>
+
+        
+          <br><br>
+           <p>Click camera icon to add the person's face to search in criminal's list.</p>
+
+         </div>   
+          <div ng-hide="disable1 == true">
+               <img ng-src="{{display1.img}}" ng-show="display1.img" height="350px" width="320px" >
+               <br>
+               <button class="tealbutton" ng-click="verify()">Verify</button>
+          </div> 
+                  
+    </form>  
+ 
+  </ion-content>
+
+</ion-view>

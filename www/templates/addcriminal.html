@@ -1,0 +1,78 @@
+<ion-view view-title="Add Criminal" hide-back-button="true" class="layout">
+<ion-header-bar align-title="left" class="bar-positive">
+   <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeftSideMenu()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:'Roboto' sans-serif !important;">Add Criminal</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+<ion-content class="has-header">
+
+    <form name="form">
+    <div class="list list-icon">
+       <div class="profile-view">
+            <div class="pv-header">
+                <label >
+
+                   <img src="img/camera.png" class="pv-main" alt="" height="120px" ng-if="!display.img">
+                  <img ng-src="{{display.img}}" ng-show="display.img" height="120px" class="pv-main imgrad" >
+                   
+                 <input type="file" id="fileButton"  data-file ng-model="image.file" style="visibility: hidden;">
+                </label>
+            </div>
+          </div>
+
+         <div class='row'>
+          <div class='col-10 rowicon'>
+          <i class='icon ion-android-person authicon'></i>
+          </div>
+          <div class='col-90 rowtext'>
+                 <label class='item item-input item-floating-label' >
+                        <input type='text' placeholder='Name' ng-model='crime.name' style='color: #000000;' autocomplete='off'>
+                    </label> 
+            </div>
+          </div> 
+          <div class="row">
+              <div class="col-10 rowicon">
+              <i class="icon ion-android-locate authicon"></i>  
+              </div>
+              <div class="col-90 getpad">                 
+                <label class="item item-input item-floating-label">
+                    <input type="text" placeholder="Location" ng-model="crime.location" style="color: #000000;" autocomplete="off">
+                </label>
+              </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-10 rowicon">
+              <i class="icon ion-person-stalker authicon"></i>  
+              </div>
+              <div class="col-90 getpad"> 
+                          
+                  <select ng-model="crime.gender" ng-style="crime.gender === undefined && {'color':'#757575', 'background-color': 'transparent', 'border':'none'} || crime.gender !== undefined && {'color':'#000','background-color': 'transparent', 'border':'none'}">
+                    <option value="" ng-disabled="true" selected>Select Value</option>
+                    <option style="color: #000 !important;" value="Male">Male</option>
+                    <option style="color: #000 !important;" value="Female">Female</option>
+                    <option style="color: #000 !important;" value="Transgender">Transgender</option>
+                  </select>
+                  <hr style="height: 0.1px !important;">
+              </div>
+          </div>
+           <div class='row'>
+          <div class='col-10 rowicon'>
+          <i class='icon ion-compose authicon'></i>
+          </div>
+          <div class='col-90 getpad'>
+                 <label class='item item-input item-floating-label' >
+                        <textarea  placeholder='Crime Details' ng-model='crime.crimedata' style='color: #000000;background-color: transparent !important;' autocomplete='off'></textarea> 
+                    </label> 
+            </div>
+          </div> 
+          <br>
+          <button class="tealbutton" ng-click="addcrime(crime, image)" ng-disabled="!crime.name || !crime.location || !crime.gender || !crime.crimedata || disable == true">Add Criminal</button>
+            </div>            
+    </form>      
+  </ion-content>
+</ion-view>

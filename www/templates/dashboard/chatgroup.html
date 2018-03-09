@@ -1,0 +1,113 @@
+<ion-view view-title="Durga Group">
+    <ion-header-bar align-title="left" class="bar-positive">
+  <div class="buttons">
+    <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="goback()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:georgia;">Durga Group</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+          <ion-content has-bouncing="true" class="has-header has-footer"><br>
+              <div ng-if="length === 0"><br><br>
+                <center><p style="font-size:18px;color:gray;">Start Conversation..</p></center>
+              </div>
+            
+              <div ng-repeat="message in datas" class="message-wrapper">
+                 
+                  <div ng-if="length !== 0 && username !== message.username">
+                      
+                    <img class="profile-pic left" ng-src="{{message.image}}" ng-if="message.image != null">
+                    <img class="profile-pic left" src="img/profile.png" ng-if="message.image == null">
+      
+                      <div class="chat-bubble left" ng-if="message.link != null" ng-click="open(message.link)">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span class="bold">{{message.username}}</span>,
+                              <span style="font-family:timesnewroman;">{{message.time}}</span>
+                          </div>
+      
+                      </div>
+                      <div class="chat-bubble left" ng-if="message.link == null">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span class="bold">{{message.username}}</span>,
+                              <span style="font-family:timesnewroman;">{{message.time}}</span>
+                          </div>
+      
+                      </div>
+                  </div>
+      
+                  <div ng-if="length !== 0 && username === message.username">
+                    
+                      <img class="profile-pic right" ng-src="{{message.image}}" ng-if="message.image != null">
+                      <img class="profile-pic right" src="img/profile.png" ng-if="message.image == null">
+                    
+                      <div class="chat-bubble right" ng-if="message.link != null" ng-click="open(message.link)">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span class="bold">{{message.username}}</span>,
+                              <span style="font-family:timesnewroman;">{{message.time}}</span>
+                          </div>
+      
+                      </div>
+
+                       <div class="chat-bubble right" ng-if="message.link == null">
+      
+                          <div class="message" ng-bind-html="message.text | nl2br" autolinker>
+                          </div>
+      
+                          <div class="message-detail">
+                              <span class="bold">{{message.username}}</span>,
+                              <span style="font-family:timesnewroman;">{{message.time}}</span>
+                          </div>
+      
+                      </div>
+                    
+                  </div>
+      
+                  <div class="cf"></div>
+      
+              </div>
+          </ion-content>
+      
+         <!-- <form name="form">
+              <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+                  <label class="item-input-wrapper">
+                      <textarea ng-model="input.text" placeholder="Type your a message..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+                  </label>
+                  <div class="row footer-btn-wrap">
+                    <i class="icon ion-android-send" ng-click="sms()" style="color:teal !important;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                   <i class="icon ion-android-send" ng-click="getloc()" style="color:teal !important;"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="button button-clear button-icon icon ion-android-send footer-btn" ng-disabled="!input.text || input.text === ''" ng-click="send(input)" style="color:teal !important;">
+                    </button>
+                  </div>
+              </ion-footer-bar>
+          </form>-->
+
+
+
+           <form name="form">
+              <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+                <label class="item-input-wrapper">
+                      <input type="text" placeholder="Type your a message..."  ng-model="input.text" style="margin-bottom : 0.5em !important;">
+                </label>
+                
+                 <button class="button  button-clear ion-chatbubbles" style="margin-left : 0.5em !important; margin-right: 0.5em !important; font-size: 1.2em !important;" ng-click="sms()"></button>
+
+                   <button class="button  button-clear ion-android-locate" style="margin-left : 0.5em !important; margin-right: 2em !important; font-size: 1.2em !important;" ng-click="getloc()"></button>
+
+
+                   <button class="button button-clear button-icon icon ion-android-send" ng-disabled="!input.text || input.text === ''" ng-click="send(input)" style="color:#000 !important;  text-transform: inherit; margin-top : 0.2em !important;"></button>
+              </ion-footer-bar>
+          </form>
+    </ion-view>

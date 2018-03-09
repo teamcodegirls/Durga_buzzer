@@ -1,0 +1,21 @@
+ <ion-view view-title="My Durgas" hide-back-button="true">
+   <ion-header-bar align-title="left" class="bar-positive">
+   <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeftSideMenu()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:'Roboto' sans-serif !important;">My Durgas</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+    <ion-content>
+        <ion-list>
+          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="data in datas" type="item-text-wrap" href="#/app/chatdetail/{{data.$id}}" ng-if="name != data.username">
+            <img ng-src="{{data.image}}" ng-if="data.image != undefined">
+            <img src="img/profile.png" ng-if="data.image == undefined">
+            <h2 style="color: #706d6d; margin-top: 0.8em !Important;">{{data.username}}</h2>
+            <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        </ion-item>
+    </ion-list>
+    </ion-content>
+</ion-view>

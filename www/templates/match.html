@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar align-title="center" class="bar-positive">
+    <p class="title">Matched</p>
+      <button class="button button-clear right" style="padding-top:5px;text-transform: capitalize !important; padding-right: 1em !important;" ng-click="closeModal1()">
+          <i class="ion-android-close"></i>
+      </button>
+  </ion-header-bar>
+  <ion-content class="padding iniLogin">
+
+  <center><img ng-src="{{nowpersonimage}}" height="200px" width="200px" style="border-radius: 10px !important;">
+  <div ng-repeat="data in displayperson" >
+      <button class='{{buttoncolor}}'>{{matchdata}}</button>
+      <img ng-src="{{data.image}}" height="200px" width="200px" style="border-radius: 10px !important;">
+  </div>
+ </center>
+  
+
+  </ion-content>
+</ion-modal-view>

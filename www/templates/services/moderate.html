@@ -1,0 +1,41 @@
+<ion-view view-title="Services" hide-back-button="true" class="layout">
+<ion-header-bar align-title="left" class="bar-positive">
+   <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeftSideMenu()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:'Roboto' sans-serif !important;">Services</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+  <div class="tabs-striped tabs-color-positive">
+    <div class="tabs">
+      <a class="tab-item" href="#/app/service">
+      Safe
+      </a>
+      <a class="tab-item active" href="#/app/moderate">
+      Modernate
+      </a>
+      <a class="tab-item" href="#/app/danger">
+      Danger
+      </a>
+    </div>
+  </div>
+  <ion-content class="has-header" >
+
+
+  <div class="cardfab" style="margin-top: 2em !important;">
+  <div class=" item item-divider item-icon-right" style="border-bottom: 0.5em solid  #f5f5f5!important;">
+  <br>
+        <span class="font-light">Moderate Location (Orange) </span>
+        <br>
+      </div>
+
+    <div class=" padding" >
+    <!--<center><img src="img/safe.png" style="height: 150px; width: 150px;"></center>-->
+      <p>This colour indicates you are in moderately safe zone. Alternate safer routes are being displayed and Durga alerts us about the area.</p>
+    </div>
+    </div>
+        
+  </ion-content>
+</ion-view>

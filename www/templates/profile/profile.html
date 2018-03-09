@@ -1,0 +1,188 @@
+<ion-view can-swipe-back="false">  
+  <ion-content>
+      <div class="w3-display-container">
+      <!-- image banner -->
+          <div class="image-wrapperprofile">
+              <img ng-src="img/bg.jpg" style="height:16em;width:100%;" >
+                  <div class="w3-display-topleft" ng-click="toggleLeftSideMenu()">
+                      <i class="icon ion-navicon" ></i>
+                  </div>
+                  <div class="w3-display-topright" ng-click="call()" style="margin-top: 0.5em !important;">
+                      <i class="icon ion-android-call" ></i>
+                  </div>
+                 <!-- <div class="w3-display-topright"  style="font-size: 1.5em !important; margin-top: 0.8em !important;" ng-class="{'icon ion-edit ': profileedit, 'icon ion-close-round': !profileedit}" ng-click="profileedit = !profileedit">
+                     
+                  </div>-->
+                  <div class="w3-display-middle1">  
+                      <div class="profile-view">
+                        <div class="pv-header">
+                        <label for="imageUpload">    
+                        <img ng-src="{{user.image}}" alt="" class="pv-main" ng-if="user.image != null && image == null" style="border-radius: 50% !important; width: 120px !important; height: 120px">
+                               <img ng-src="{{image.dataURL}}" alt="" class="pv-main" ng-if="user.image != null && image != null" style="border-radius: 50% !important; width: 120px !important; height: 120px">
+                                <img ng-src="{{image.dataURL}}" alt="" class="pv-main" ng-if="user.image == null && image != null" style="border-radius: 50% !important; width: 120px !important; height: 120px">
+                             <img src="img/profile.png" alt="" class="pv-main" style="border-radius: 50% !important; width: 120px !important; height: 120px" ng-if="user.image == null && image == null"><br>
+                        </label>
+                        </div>
+                  </div>
+                      <center> <p class="font-headfonter" style="color: #f9f9f9; margin-top:1.5em;"><font size="5px">{{user.username}}</font></p></center>    
+                  </div>
+          </div>
+
+          <!-- profileedit -->
+
+      <div class="list padding" ng-show="profileedit" style="margin-bottom: 10em !important;">
+
+            <div class="row">
+                <div class="col-10" style="margin-top : 20px !important;">
+                    <i class="icon ion-android-contact" style="color: #969191; font-size: 20px;"></i>
+                </div>
+                <div class="col-90" style="margin-top : 15px !important;">
+                    <label class="item item-input item-floating-label" >
+                        <p style="color: #838186; background: transparent;" ng-show="user.username">{{user.username}}</p>
+                        <p style="color: #838186; background: transparent;" ng-show="!user.username">Username</p>
+                    </label> 
+                </div>
+            </div> 
+
+            <div class="row">
+                <div class="col-10" style="margin-top : 40px !important;">
+                    <i class="icon ion-email" style="color: #969191; font-size: 20px;"></i>  
+                </div>
+                <div class="col-90" style="margin-top : 35px !important;">                  
+                    <label class="item item-input item-floating-label" >
+                      <p style="color: #838186; background: transparent;" ng-show="user.email">{{user.email}}</p>
+                      <p style="color: #838186; background: transparent;" ng-show="!user.email">Email-ID</p>
+                  </label> 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-10" style="margin-top : 40px !important;">
+                    <i class="icon ion-android-call" style="color: #969191; font-size: 20px;"></i>  
+                </div>
+                <div class="col-90" style="margin-top : 35px !important;">  
+                    <div class="item item-input item-floating-label" >
+                       <div> 
+                        <p style="color: #838186; background: transparent;" ng-show="user.mobile">{{user.mobile}}</p>
+                        <p style="color: #838186; background: transparent;" ng-show="!user.mobile">Phone Number</p></div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-10" style="margin-top : 40px !important;">
+                    <i class="icon ion-ios-people" style="color: #969191; font-size: 20px;"></i>  
+                </div>
+                <div class="col-90" style="margin-top : 35px !important;">  
+                    <div class="item item-input item-floating-label" >
+                        <div>
+                        <p style="color: #838186; background: transparent;" ng-show="user.relmobile">{{user.relmobile}}</p>
+                        <p style="color: #838186; background: transparent;" ng-show="!user.relmobile">Relative Contact Number</p></div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-10" style="margin-top : 40px !important;">
+                    <i class="icon ion-location" style="color: #969191; font-size: 20px;"></i>  
+                </div>
+                <div class="col-90" style="margin-top : 35px !important;">  
+                    <div class="item item-input item-floating-label" >
+                        <div>
+                        <p style="color: #838186; background: transparent;" ng-show="user.location">{{user.location}}</p>
+                        <p style="color: #838186; background: transparent;" ng-show="!user.location">Location</p></div> 
+                    </div>
+                </div>
+            </div>
+      </div>
+
+
+<!-- !profileedit -->
+
+
+
+  <div class="list padding" ng-show="!profileedit">
+      <div class="row">
+      <div class="col-10" style="margin-top : 30px !important;">
+      <i class="icon ion-android-contact" style="color: #E91E63; font-size: 20px;"></i>
+      </div>
+      <div class="col-90" style="margin-top : 20px !important;">
+             <label class="item item-input item-floating-label" >
+                    <input type="text" placeholder="Username" ng-model="user.username"  style="color: #E91E63; background: transparent;" autocomplete="off">
+                </label> 
+        </div>
+      </div> 
+
+      <div class="row">
+      <div class="col-10" style="margin-top : 40px !important;">
+      <i class="icon ion-email" style="color: #E91E63; font-size: 20px;"></i>  
+      </div>
+      <div class="col-90" style="margin-top : 30px !important;">                 
+                <label class="item item-input item-floating-label">
+                    <input type="email" placeholder="Email-ID" ng-model="user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" style="color: #E91E63; background: transparent;" name="email" autocomplete="off">
+                    <span class='authalert' ng-show='form.email.$error.pattern'>Enter valid email id</span>
+                </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10" style="margin-top : 40px !important;">
+        <i class="icon ion-android-call" style="color: #E91E63; font-size: 20px;"></i>  
+        </div>
+      <div class="col-90" style="margin-top : 30px !important;">  
+                <label class="item item-input item-floating-label">
+                   <input type="text" placeholder="Phone Number" ng-model="user.mobile" maxlength="10" ng-minlength="10"  style="color: #E91E63; background: transparent;" name="mobile" autocomplete="off">
+                   <span class='authalert' ng-show='form.mobile.$error.minlength'>Phone number should be in 10 digits</span>
+                </label>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-10" style="margin-top : 40px !important;">
+        <i class="icon ion-ios-people" style="color: #E91E63; font-size: 20px;"></i>  
+        </div>
+      <div class="col-90" style="margin-top : 30px !important;">  
+                <label class="item item-input item-floating-label">
+                   <input type="text" placeholder="Relative Contact Number" ng-model="user.relmobile" maxlength="10" ng-minlength="10"  style="color: #E91E63; background: transparent;" name="relmobile" autocomplete="off" >
+                   <span class='authalert' ng-show='form.relmobile.$error.minlength'>Phone number should be in 10 digits</span>
+                </label>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-10" style="margin-top : 40px !important;">
+      <i class="icon ion-android-contact" style="color: #E91E63; font-size: 20px;"></i>
+      </div>
+      <div class="col-90" style="margin-top : 30px !important;">
+             <label class="item item-input item-floating-label" >
+                    <input type="text" placeholder="Location"  style="color: #E91E63; background: transparent;" google-autocomplete-suggestion location="location" on-selection="onAddressSelection(location)" ng-model="location.formatted_address" style="color: #000000;" autocomplete="off">
+                </label> 
+        </div>
+      </div> 
+
+      <center><button class='profile-btn' ng-click='update(user, location.formatted_address, image)' ng-disabled='!user.username || !user.mobile || form.email.$error.pattern || form.mobile.$error.minlength || form.relmobile.$error.minlength' style="margin-top: 3em !important;">Update</button></center>
+    </div>
+    
+     <div class="profile-view" ng-hide="profileedit">
+            <div class="pv-header">
+                  <label for="imageUpload" class="profile-btn" style="border-radius : 100% !important; height : 50px; width: 50px; position: fixed; top: 0px; right: 28px; margin-top: 12.5em !important; background : #E0E0E0 !important; border-color: #E0E0E0;">
+
+                  <span class="pv-main" style="float: center !important; margin-left:0em !important;"><font size="5.7em" color="#E91E63"><i class="icon ion-camera"></i></font></span>
+                     
+                      <input type="file" accept="image/*" id="imageUpload" image="image" style="visibility: hidden;" ng-model="image">
+
+                    </label>
+
+                      
+            </div>
+      </div>
+</div>
+
+    </ion-content>
+    <div class="float-button" style="padding-right: 1.5em;">
+     <span class="height-fix">
+       <button id="fab-profile" class="button button-fab button-fab-bottom-right fab-fixed button-positive pane" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px); " ng-click="change()">
+         <div ng-class="{'icon ion-edit ': profileedit, 'icon ion-close-round': !profileedit}">
+       </button>
+     </span>
+   </div> 
+    </ion-view>

@@ -1,0 +1,57 @@
+<ion-view hide-nav-bar="true" can-swipe-back="false" class="layout">
+  
+  <ion-content class="padding iniLogin">
+    <form name="form">
+     <center><img src="img/durgabuzzer.png" height="150px"></center>
+   <p class="headerh1" align="center" style="color: grey !important;">Durga-Buzzer</p>
+    <div class="list list-icon authheight">
+
+      <div class="row">
+      <div class="col-10 rowicon">
+      <i class="icon ion-android-person authicon"></i>  
+      </div>
+      <div class="col-90 rowtext">                 
+                <label class="item item-input item-floating-label">
+                    <input type="text" placeholder="Username" ng-model="user.username"  style="color: #000000;" name="username" autocomplete="off">
+                </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10 rowicon">
+        <i class="icon ion-android-call authicon"></i>  
+        </div>
+      <div class="col-90 rowtext">  
+                <label class="item item-input item-floating-label">
+                   <input type="tel" placeholder="Mobile Number" ng-model="user.mobile" style="color: #000000;" name="mobile" maxlength='10' ng-minlength='10' autocomplete="off">
+                  <span class='authalert' ng-show='form.mobile.$error.minlength'>Phone number should be in 10 digits</span>
+                </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 rowicon">
+        <i class="icon ion-android-wifi authicon"></i>  
+        </div>
+      <div class="col-90 rowtext">  
+                <label class="item item-input item-floating-label">
+                   <input type="tel" placeholder="Relatives Mobile Number" ng-model="user.relmobile" style="color: #000000;" name="relmobile" maxlength='10' ng-minlength='10' autocomplete="off">
+                  <span class='authalert' ng-show='form.relmobile.$error.minlength'>Phone number should be in 10 digits</span>
+                </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 rowicon">
+        <i class="icon ion-ios-location authicon"></i>  
+        </div>
+      <div class="col-90 rowtext">  
+                <label class="item item-input item-floating-label">
+                   <input type="text" placeholder="Location"  google-autocomplete-suggestion location="location" on-selection="onAddressSelection(location)" ng-model="location.formatted_address" style="color: #000000;" autocomplete="off">
+                  
+                </label>
+        </div>
+      </div>
+                <button class="tealbutton" ng-click="getin(user, location.formatted_address)" ng-disabled="!user.username || !user.mobile || form.mobile.$error.minlength || !user.relmobile || form.relmobile.$error.minlength" style="margin-top: 3.5em !important;">GET IN</button>
+                </div>            
+      </form>      
+  </ion-content>
+</ion-view>

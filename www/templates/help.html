@@ -1,0 +1,53 @@
+<ion-view view-title="Help Others" hide-back-button="true" class="layout">
+<ion-header-bar align-title="left" class="bar-positive">
+   <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeftSideMenu()">
+  </div>
+  <h1 class="title" style="font-size:18px;font-family:'Roboto' sans-serif !important;">Help Others</h1>
+  <div class="buttons" ng-click="call()" style="float: right !important; ">
+    <button class="button button-clear ion-android-call" style="font-size:  1.3em !important;"></button>
+  </div>
+</ion-header-bar>
+<ion-content class="has-header">
+   <form name="form">
+    <div class="list list-icon authheight">
+      <div class="row">
+        <div class="col-10 rowicon">
+        <i class="icon ion-location authicon"></i>  
+        </div>
+        <div class="col-90 rowtext">                 
+          <label class="item item-input item-floating-label">
+              <input type="text" placeholder="Location" ng-model="help.location"  style="color: #000000;" name="location" autocomplete="off">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 rowicon">
+          <i class="icon ion-compose authicon"></i>  
+        </div>
+        <div class="col-90 rowtext">  
+          <label class="item item-input item-floating-label">
+            <input type="text" placeholder="Description" ng-model="help.description"  style="color: #000000;" name="description" autocomplete="off">
+          </label>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-10 rowicon">
+          <i class="icon ion-help-buoy authicon"></i>  
+          </div>
+          <div class="col-90 getpad"> 
+                      
+              <select ng-model="help.condition" ng-style="help.condition === undefined && {'color':'#757575', 'background-color': 'transparent', 'border':'none'} || help.condition !== undefined && {'color':'#000','background-color': 'transparent', 'border':'none'}">
+                <option style="color: #000 !important;" selected value="Green Location">Good</option>
+                <option style="color: #000 !important;" value="Orange Location">Not bad</option>
+                <option style="color: #000 !important;" value="Red Location">Bad</option>
+              </select>
+              <hr style="height: 0.1px !important;">
+          </div>
+      </div>
+      <button class="tealbutton" ng-click="helpus(help)" ng-disabled="!help.location || !help.condition" style="margin-top: 3.5em !important;">SUBMIT</button>
+    </div>            
+  </form>
+ 
+</ion-content>
+</ion-view>
